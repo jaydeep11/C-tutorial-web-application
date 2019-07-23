@@ -1,0 +1,79 @@
+{% load widget_tweaks %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/w3.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/loginstyle.css' %}">
+<!--modal login
+        <div id="modlogin" class="w3-modal" style="display: none">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+      
+      <div class="w3-center" >
+        <img src="{% static 'accounts/images/avatar.png' %}" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="#">
+        <div class="w3-section">
+          <label><b>Username</b></label>
+          <input class="w3-input w3-border-bottom w3-margin-bottom" type="text" placeholder="Enter Username" name="username" required>
+          <label><b>Password</b></label>
+          <input class="w3-input w3-border-bottom" type="password" placeholder="Enter Password" name="pass" required>
+            <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+          <button class="w3-button w3-block w3-black w3-hover-amber w3-section w3-padding" type="submit">Login</button>
+        </div>
+      </form>
+        <div class="w3-container">
+        <b>Not with Us?</b>
+            <a href="{% url 'accounts:signup' %}" style="text-decoration: none">
+                <button class="w3-button w3-block w3-black w3-hover-amber w3-section w3-padding">SignUp</button></a>
+        </div>
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <span class="w3-right w3-padding"><a href="#">Forgot password?</a></span>
+      </div>
+    </div>
+  </div>-->
+{% if message %}
+    <div id="mod-message" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-black" style="z-index: 2;"> 
+        <h2 class="w3-center">ERROR!!!</h2>
+      </header>
+      <div class="w3-container">
+        <p class="w3-center">{{message}}</p>
+      </div>
+      <footer >
+          <div class="w3-container w3-center w3-padding w3-light-grey w3-border-top">
+          <button onclick="document.getElementById('mod-message').style.display='none'" 
+        class="w3-center w3-button w3-black w3-padding">OK</button>
+          </div>
+      </footer>
+    </div>
+  </div>
+{% endif %}
+
+<div class="w3-container">
+    <div class="w3-card-4 w3-display-middle" style="max-width: 600px;min-width: 320px">
+        <div class="w3-center" >
+        <img src="{% static 'accounts/images/avatar.png' %}" alt="Avatar" style="width:15%;" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="{% url 'accounts:login' %}" method="post">
+          {% csrf_token %}
+        <div class="w3-section">
+          <label><b>Username</b></label>
+          <input class="w3-input w3-border-bottom w3-margin-bottom" type="text" placeholder="Enter Username" name="username" required>
+          <label><b>Password</b></label>
+          <input class="w3-input w3-border-bottom" type="password" placeholder="Enter Password" name="password" required>
+            <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+          <button class="w3-button w3-block w3-black w3-hover-amber w3-section w3-padding" type="submit">Login</button>
+        </div>
+      </form>
+        <div class="w3-container">
+        <b>Not with Us?</b>
+            <a href="{% url 'accounts:signup' %}" style="text-decoration: none">
+                <button class="w3-button w3-block w3-black w3-hover-amber w3-section w3-padding">SignUp</button></a>
+        </div>
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <span class="w3-right w3-padding"><a href="#">Forgot password?</a></span>
+      </div>
+
+    </div>
+</div>

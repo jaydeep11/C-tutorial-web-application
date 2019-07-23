@@ -1,0 +1,45 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="w3-border-top w3-border-bottom">if Statement</h2>
+<p>An <b>if</b> statement consists of a Boolean expression followed by one or more statements.</p>
+<h3><b>Syntax</b></h3>
+<p>The syntax of an 'if' statement in C programming language is −</p>
+<div class="w3-example">
+<pre>if(boolean_expression) {
+   /* statement(s) will execute if the boolean expression is true */
+}</pre></div>
+<p>If the Boolean expression evaluates to <b>true</b>, then the block of code inside the 'if' statement will be executed. If the Boolean expression evaluates to <b>false</b>, then the first set of code after the end of the 'if' statement (after the closing curly brace) will be executed.
+</p><p>
+    C programming language assumes any <b>non-zero</b> and <b>non-null</b> values as <b>true</b> and if it is either zero or null, then it is assumed as <b>false value</b>.</p>
+<h3><b>FlowChart</b></h3>
+<img src="{% static 'tutorials/images/iff_flow.png' %}" alt="Decision making flow chart" style="margin-left: auto; margin-right: auto;max-width: 100%;display: block">
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="kwd">int</span> main <span class="pun">() {</span>
+
+   <span class="com">/* local variable definition */</span>
+   <span class="kwd">int</span> a <span class="pun">=</span> 10<span class="pun">;</span>
+ 
+   <span class="com">/* check the boolean condition using if statement */</span>
+	
+   <span class="kwd">if</span><span class="pun">(</span> a <span class="pun">&#60;</span> 20 <span class="pun">) {</span>
+      <span class="com">/* if condition is true then print the following */</span>
+      printf<span class="pun">(</span><span class="str">"a is less than 20\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+   
+   printf<span class="pun">(</span><span class="str">"value of a is : %d\n"</span>, a<span class="pun">);</span>
+ 
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example">
+<pre>a is less than 20;
+value of a is : 10</pre></div>
+{% endblock %}

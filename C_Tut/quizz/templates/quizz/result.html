@@ -1,0 +1,68 @@
+{% extends '../quizz/base.html' %}
+{% load i18n %}
+
+{% load quiz_tags %}
+
+{% block title %} {{ quiz.title}} {% endblock %}
+{% block description %} {% trans "Exam Results for" %} {{ quiz.title }} {% endblock %}
+
+{% block content %}
+{% if max_score %}
+
+  <div>
+	<h2>{% trans "Exam results" %}</h2>
+	<p>
+      <h4>{% trans "Exam title" %}: </h4>
+	  <strong>{{ quiz.title }}</strong></p>
+
+	<p><h4>
+	  {% trans "You answered" %} {{ score }} {% trans "questions correctly out of" %} {{ max_score }}, {% trans "giving you" %} {{ percent }} {% trans "percent correct" %}
+    </h4></p>
+
+	{% if quiz.pass_mark %}
+	<hr>
+    <p><h4>{{ sitting.result_message }}</h4></p>
+	<hr>
+
+	{% endif %}
+
+	<p>{% trans "Review the questions below and try the exam again in the future"%}.</p>
+
+	{% if user.is_authenticated %}
+
+	  <p>{% trans "The result of this exam will be stored in your progress section so you can review and monitor your progression" %}.</p>
+
+	{% endif %}
+  </div>
+
+
+  {% endif %}
+{% if questions %}
+
+    {% for question in questions %}
+
+      <p><h3>
+		{{ question.content }}
+      </h3></p>
+
+	  {% correct_answer_for_all question %}
+
+      {% if question.user_answer %}
+      <p>{% trans "Your answer" %}: {{ question|answer_choice_to_string:question.user_answer }}</p>
+      {% endif %}
+
+	  <p><strong>{% trans "Explanation" %}:</strong></p>
+	  <div style="background-color: #fcf8e3;">
+		<p>{{ question.explanation|safe }}</p>
+	  </div>
+
+	  <hr>
+
+  {% endfor %}
+
+{% endif %}
+<div class="w3-example w3-center">
+<h4>Wanna give quiz again??</h4>
+    <a href="{% url 'quizz:quiz_question' tutorial_id=quiz.id %}" class="w3-btn w3-margin-bottom w3-black w3-hover-amber">Try again</a>
+</div>
+{% endblock %}

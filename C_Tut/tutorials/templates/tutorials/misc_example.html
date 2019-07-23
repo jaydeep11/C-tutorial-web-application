@@ -1,0 +1,67 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="w3-border-top w3-border-bottom">Misc Operators ↦ sizeof & ternary</h2>
+<p>Besides the operators discussed above, there are a few other important operators including <b>sizeof</b> and <b>? :</b> supported by the C Language.</p>
+<table class="table table-bordered" style="text-align: center">
+<tbody>
+    <tr>
+        <th>Operator</th><th>Description</th><th>Example</th>
+    </tr>
+    <tr>
+        <td>sizeof()</td> <td>	Returns the size of a variable.</td><td> 	sizeof(a), where a is integer, will return 4.</td>
+    </tr>
+    <tr>
+        <td>&</td><td>	Returns the address of a variable.</td><td>	&a; returns the actual address of the variable.</td>
+    </tr>
+    <tr>
+        <td>*</td><td> 	Pointer to a variable.</td><td> 	*a;</td>
+    </tr>
+    <tr>
+        <td>?:</td><td> 	Conditional Expression.</td><td> 	If Condition is true ? then value X : otherwise value Y</td>
+    </tr>
+    </tbody>
+</table>
+<p>Try following example to understand all the miscellaneous operators available in C −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="kwd">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+
+main<span class="pun">() {</span>
+
+   <span class="kwd">int</span> a <span class="pun">=</span> 4<span class="pun">;</span>
+   <span class="kwd">short</span> b<span class="pun">;</span>
+   <span class="kwd">double c</span><span class="pun">;</span>
+   <span class="kwd">int*</span> ptr<span class="pun">;</span>
+
+   <span class="com">/* example of sizeof operator */</span>
+   printf<span class="pun">(</span><span class="str">"Line 1 - Size of variable a = %d\n"</span>, sizeof(a) <span class="pun">);</span>
+   printf<span class="pun">(</span><span class="str">"Line 2 - Size of variable b = %d\n"</span>, sizeof(b) <span class="pun">);</span>
+   printf<span class="pun">(</span><span class="str">"Line 3 - Size of variable c = %d\n"</span>, sizeof(c) <span class="pun">);</span>
+
+   <span class="com">/* example of & and * operators */</span>
+   ptr <span class="pun">= &</span>a<span class="pun">;</span>	<span class="com">/* 'ptr' now contains the address of 'a'*/</span>
+   printf<span class="pun">(</span><span class="str">"value of a is  %d\n"</span>, a <span class="pun">);</span>
+   printf<span class="pun">(</span><span class="str">"*ptr is %d.\n"</span>, *ptr <span class="pun">);</span>
+
+   <span class="com">/* example of ternary operator */</span>
+   a <span class="pun">=</span> 10<span class="pun">;</span>
+   b <span class="pun">= (</span>a <span class="pun">==</span> 1<span class="pun">) ?</span> 20<span class="pun">:</span> 30<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"value of b is  %d\n"</span>, b <span class="pun">);</span>
+
+   b <span class="pun">= (</span>a <span class="pun">==</span> 10<span class="pun">) ?</span> 20<span class="pun">:</span> 30<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"value of b is  %d\n"</span>, b <span class="pun">);</span>
+}</pre>
+    </div>
+</div>
+<p>When you compile and execute the above program, it produces the following result −</p>
+<div class="w3-example"><pre>Line 1 - Size of variable a = 4
+Line 2 - Size of variable b = 2
+Line 3 - Size of variable c= 8
+value of a is  4
+*ptr is 4.
+Value of b is 30
+Value of b is 20</pre></div>
+{% endblock %}

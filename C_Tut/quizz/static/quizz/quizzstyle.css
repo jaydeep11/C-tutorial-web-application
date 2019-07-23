@@ -1,0 +1,108 @@
+p{
+    /*margin: .0em .2em .6em .2em;*/
+    text-align: justify;
+    color: #000;
+    font-size: 15px !important;
+}
+#home,#about,#contact,#services,#signup,#login,#ssignup,#slogin
+{
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+#login
+{
+    margin-right: 20px;
+    margin-left: 4px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    padding:5px 24px;
+}
+.top 
+{
+    position: relative;
+    height: 100px;
+    padding-top: 10px;
+    line-height: 50px;
+    overflow: hidden;
+    z-index: 2;
+}
+.topnav {
+    z-index: 2;
+    font-size: 17px;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 0;
+    letter-spacing: 1px;
+}/*
+#leftnavinner {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+#leftinner {
+    position: fixed;
+    top: 0px;
+    padding-top: 152px;
+    padding-bottom: 0;
+    height: 100%;
+    width: 270px;
+    background-color: transparent;
+}*/
+.w3-sidebar {
+    z-index: 3;
+    width: 270px;
+    overflow: hidden !important;
+    position: absolute !important;
+    margin-bottom: -155px;
+}
+@screen and (min-width:769px)
+.w3-sidebar.w3-collapse {
+    display: block !important;
+}
+.w3-example
+{
+    background-color: #f1f1f1;
+    padding: 0.01em 16px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+}
+.com
+{
+    color: #800;
+}
+.str
+{
+    color: #080;
+}
+.kwd
+{
+    color: #008;
+}
+.pun
+{
+    color: #660;
+}
+.table
+{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.table-bordered thead tr th, .table-bordered tbody tr th, .table-bordered tfoot tr th, .table-bordered thead tr td, .table-bordered tbody tr td, .table-bordered tfoot tr td {
+    border: 1px solid #ddd;
+}
+.table thead tr th, .table tbody tr th, .table tfoot tr th, .table thead tr td, .table tbody tr td, .table tfoot tr td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+.ts{
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+th{
+    background: #eee;
+}

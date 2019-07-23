@@ -1,0 +1,65 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<p>Following table shows all the logical operators supported by C language. Assume variable <b>A</b> holds 1 and variable <b>B</b> holds 0, then −</p>
+<table class="table table-bordered" style="text-align: center">
+<tbody>
+    <tr>
+        <th>Operator</th><th>Description</th><th>Example</th>
+    </tr>
+    <tr>
+        <td>&&</td> <td>	Called Logical AND operator. If both the operands are non-zero, then the condition becomes true.</td><td> 	(A && B) is false.</td>
+    </tr>
+    <tr>
+        <td>|| </td><td>	Called Logical OR Operator. If any of the two operands is non-zero, then the condition becomes true. </td><td>	(A || B) is true.</td>
+    </tr>
+    <tr>
+        <td>!</td><td> 	Called Logical NOT Operator. It is used to reverse the logical state of its operand. If a condition is true, then Logical NOT operator will make it false.</td><td> 	!(A && B) is true.</td>
+    </tr>
+    </tbody>
+</table>
+<p>Try the following example to understand all the logical operators available in C −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="kwd">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+
+main<span class="pun">() {</span>
+
+   <span class="kwd">int</span> a <span class="pun">=</span> 5<span class="pun">;</span>
+   <span class="kwd">int</span> b <span class="pun">=</span> 20<span class="pun">;</span>
+   <span class="kwd">int</span> c <span class="pun">;</span>
+
+   <span class="kwd">if</span><span class="pun">(</span> a <span class="pun">&&</span> b <span class="pun">) {</span>
+      printf<span class="pun">(</span><span class="str">"Line 1 - Condition is true\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+	
+   <span class="kwd">if</span><span class="pun">(</span> a <span class="pun">||</span> b <span class="pun">) {</span>
+      printf<span class="pun">(</span><span class="str">"Line 2 - Condition is true\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+   
+   <span class="com">/* lets change the value of  a and b */</span>
+   a <span class="pun">=</span> 0<span class="pun">;</span>
+   b <span class="pun">=</span> 10<span class="pun">;</span>
+	
+   <span class="kwd">if</span><span class="pun">(</span> a <span class="pun">&&</span> b <span class="pun">) {</span>
+      printf<span class="pun">(</span><span class="str">"Line 3 - Condition is true\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span>
+      printf<span class="pun">(</span><span class="str">"Line 3 - Condition is not true\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+	
+   <span class="kwd">if</span><span class="pun">!(</span> a <span class="pun">&&</span> b <span class="pun">) {</span>
+      printf<span class="pun">(</span><span class="str">"Line 4 - Condition is true\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+	
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>When you compile and execute the above program, it produces the following result −</p>
+<div class="w3-example">
+<pre>Line 1 - Condition is true
+Line 2 - Condition is true
+Line 3 - Condition is not true
+Line 4 - Condition is true</pre></div>
+{% endblock %}

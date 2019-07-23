@@ -1,0 +1,50 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="w3-border-top w3-border-bottom">nested if statements</h2>
+<p>It is always legal in C programming to <b>nest</b> if-else statements, which means you can use one if or else if statement inside another if or else if statement(s).</p>
+<h3><b>Syntax</b></h3>
+<p>The syntax for a <b>nested if</b> statement is as follows −</p>
+<div class="w3-example">
+<pre>if( boolean_expression 1) {
+
+   /* Executes when the boolean expression 1 is true */
+   if(boolean_expression 2) {
+      /* Executes when the boolean expression 2 is true */
+   }
+}</pre></div>
+<p>You can nest <b>else if...else</b> in the similar way as you have nested if statements.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="kwd">int</span> main <span class="pun">() {</span>
+
+   <span class="com">/* local variable definition */</span>
+   <span class="kwd">int</span> a <span class="pun">=</span> 100<span class="pun">;</span>
+   <span class="kwd">int</span> b <span class="pun">=</span> 200<span class="pun">;</span>
+ 
+   <span class="com">/* check the boolean condition */</span>
+   <span class="kwd">if</span><span class="pun">(</span> a <span class="pun">==</span> 100 <span class="pun">) {</span>
+   
+      <span class="com">/* if condition is true then check the following */</span>
+      <span class="kwd">if</span><span class="pun">(</span> b <span class="pun">==</span> 200 <span class="pun">) {</span>
+         <span class="com">/* if condition is true then print the following */</span>
+         printf<span class="pun">(</span><span class="str">"Value of a is 100 and b is 200\n"</span> <span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   
+   printf<span class="pun">(</span><span class="str">"Exact value of a is : %d\n"</span>, a<span class="pun">);</span>
+   printf<span class="pun">(</span><span class="str">"Exact value of b is : %d\n"</span>, b<span class="pun">);</span>
+ 
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre></div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example">
+<pre>Value of a is 100 and b is 200
+Exact value of a is : 100
+Exact value of b is : 200</pre></div>
+{% endblock %}

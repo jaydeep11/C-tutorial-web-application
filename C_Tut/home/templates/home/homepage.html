@@ -1,0 +1,40 @@
+{% extends '../home/baselayout.html' %}
+{% load static %}
+
+{% block content %}
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>C &ensp;Programming</h1>
+      <h5 class="w3-padding-32">C is a powerful general-purpose programming language. It is fast, portable and available in all platforms.
+      C programming is highly efficient. That’s the main reason why it’s very popular despite being more than 40 years old. If you are new to programming, C is a good choice to start your programming journey.</h5>
+
+        <p class="w3-text-grey">This is a comprehensive guide on how to get started in C programming language, why you should learn it and how you can learn it.</p>
+        <h3>More information on C Language.Click Below!!</h3><br>
+        <a href="#"><button class="w3-btn w3-amber w3-padding w3-hover-grey">Overview</button></a>
+    </div>
+
+    <div class="w3-third w3-center">
+      <img src="{% static 'home/images/clogo.png' %}" class="w3-padding-64" style="height: 400px; width: 300px;">
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-coffee w3-padding-64 w3-text-black w3-margin-right"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>What will you gain if you learn C?</h1>
+      <h5 class="w3-padding-32">If you don’t know C, you don’t know what you are doing as a programmer. Sure, your application works fine and all. But, if you can’t say why while (*s++ = *p++); copies a string, you’re programming on a superstition. ( Joel Spolsky’s words, not mine ).
+        <br>You will understand how a computer works.<br>C is the lingua franca of programming.<br>Opportunity to work on open source projects that impact millions of people.<br>You will write better programs.<br>You will find it much easier to learn other programming languages.</h5>
+        
+    </div>
+  </div>
+</div>
+
+{% endblock %}

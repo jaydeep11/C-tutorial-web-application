@@ -1,0 +1,51 @@
+{% extends '../home/baselayout.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/contactstyle.css' %}">
+{% if message %}
+    <div id="mod-message" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-grey" style="z-index: 2;"> 
+        <h2 class="w3-center">Done!!!</h2>
+      </header>
+      <div class="w3-container">
+        <p class="w3-center">{{message}}</p>
+      </div>
+      <footer >
+          <div class="w3-container w3-center w3-padding w3-light-grey w3-border-top">
+          <button onclick="document.getElementById('mod-message').style.display='none'" 
+        class="w3-center w3-button w3-black w3-padding">OK</button>
+          </div>
+      </footer>
+    </div>
+  </div>
+{% endif %}
+
+<div class="w3-container w3-center" style="padding:64px 16px">
+  <h1 class="margin">Get in Touch with Us</h1>
+    <div class="w3-card-2 w3-display-bottommiddle" style="max-width: 900px;min-width:360px;position: relative;">
+    <form class="w3-container" action="{% url 'contact:contact' %}" method="post">
+        {% csrf_token %}
+        <div class="w3-row w3-margin-top">
+                <div class="w3-col l3 m4 w3-center w3-margin-top"><label><b>First&nbsp;Name</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.first_name class+="w3-input w3-border-bottom w3-margin-bottom" autocomplete="off" placeholder="Enter your first name" %}</div>
+            </div>
+        <div class="w3-row w3-margin-right">
+                <div class="w3-col l3 m4  w3-center w3-margin-top"><label><b>Last&nbsp;Name</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.last_name class+="w3-input w3-border-bottom w3-margin-bottom" autocomplete="off" placeholder="Enter your last name" %}</div>
+            </div>
+        <div class="w3-row">
+                <div class="w3-col l3 m4 w3-center w3-margin-top"><label><b>Email</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.email class+="w3-input w3-border-bottom w3-margin-bottom" autocomplete="off" placeholder="Email" type='email' %}</div>
+            </div>
+        <div class="w3-row">
+                <div class="w3-col l3 m4 w3-margin-top"><label><b>Message</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.message class+="w3-input w3-border w3-margin-bottom" autocomplete="off" placeholder="Your message" type="textarea" %}</div>
+            </div>
+    <button class="w3-btn w3-amber w3-padding-large w3-large w3-margin-top w3-margin-bottom w3-hover-grey" type="submit">Submit</button>
+    </form>
+    </div>
+</div>
+{% endblock %}

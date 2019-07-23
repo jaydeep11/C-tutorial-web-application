@@ -1,0 +1,124 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block homecontent %}
+<div class="w3-example">
+<h1 class="w3-center">Welcome!!&nbsp;{{stu_first_name}}&nbsp;{{stu_last_name}}</h1>
+</div>
+<div class="w3-row-padding w3-container">
+  <div class="w3-content">
+      <h1>Learn C &ensp;Programming the right way</h1>
+      <p><h5><b>Fact:</b> You cannot learn C programming in a day. You might have difficulty grasping the important concepts if you try to learn C programming faster. </h5> 
+      </p>
+    <p><h5>
+      If you just learn the syntax and dive in, your C code may work but you’ll not end up learning C programming the right way., </h5>
+    </p>
+  </div>
+</div>
+<div class="w3-row-padding w3-container">
+  <div class="w3-content">
+      <h2>Don’t just look at the example code, run it in your system</h2>
+      <p><h5>Programiz has dozens of examples that will help you understand C programming. However, if you are reading it like a novel without running it in your system, you are doing it wrong.</h5> 
+      </p>
+    <p><h5>
+      If you want to learn a new feature of C programming, try to write code related to that feature. If you can’t, copy code from Programiz and run it in your system. Then, try to understand it. Once you understand it, modify the code, make it different and run it again.</h5>
+    </p>
+  </div>
+</div>
+<div class="w3-row-padding w3-container">
+  <div class="w3-content">
+      <h2>Learn to use a Debugging tool</h2>
+      <p><h5>A debugging tool or debugger is a software (that’s already available in IDE) which allows programmers to stop a program at any point and helps to detect and correct errors.</h5> 
+      </p>
+    <p><h5>
+      When you have bugs in your program, rather than scratching your head to find the bug, you can use debugger to stop program at any point and find the value of variables to detect the bug. 
+
+Knowing how to use a debugger is an important skill that every programmer should learn. </h5>
+    </p>
+  </div>
+</div>
+<div class="w3-row-padding w3-container">
+  <div class="w3-content">
+      <h1>Learn the feature the way it is intended </h1>
+      <p><h5><b>Imagine a situation:</b> It’s possible to solve a problem with an array. Also, you can solve the same problem with a structure. Technically both are correct, which method will you use?</h5> 
+      </p>
+    <p><h5>
+      To answer this question, you should have a good knowledge of when to use an array and when to use a structure.
+
+Suppose, you are switching to C from a different language, let’s say C#. You do not want to write C# style code with C syntax in your C program.</h5>
+    </p>
+</div>
+</div>
+<div class="w3-row-padding w3-container">
+  <div class="w3-content">
+      <h1>Join C communities</h1>
+      <p><h5>Once you get the hang of writing simple C programs, join online communities and forums. You can help other programmers where you can and ask for help when you are stuck. </h5> 
+      </p>
+    <p><h5>
+      JDPTuts recommends you to join:</h5>
+    </p>
+<ul>
+    <li><a href="https://groups.google.com/forum/#!forum/cs50-discuss">Private Google forum for C Programmers</a> - It’s a gem for C programming beginners.</li>
+    <li><a href="https://www.codechef.com/c-programming">Codechef </a>- Practice questions, challenges and a large community of programmers</li>
+    <li><a href="http://stackoverflow.com/questions/tagged/c?sort=frequent&pageSize=15">StackOverflow</a> - Most Popular programming Q&A site on the web</li>
+</ul>
+</div>
+</div>
+<div class="w3-row-padding w3-container">
+  <div class="w3-content">
+      <h1 style="border-bottom: 3px solid #CCC">Always follow good programming practice</h1>
+      <p><h5>Good programming practice are the informal rules which can improve quality and decrease development time of the software.</h5> 
+      </p>
+    <p><h5>
+     Some of the programming practices mentioned here are valid in all programming languages whereas some are valid only for C programming. </h5>
+    </p>
+<p><b>Be consistent with the formatting.</b></p> 
+
+<p>The number of spaces you use in the program doesn’t matter in C. However, that doesn’t mean you should use different number of spaces at different places. Also, use proper indentation so that the code is easier to understand.</p> 
+
+<p><b>Use one statement per line.</b></p>
+
+<p>What’s wrong with the following code?</p>
+<div class="w3-example">
+    <div class="w3-code"><pre>int count; float squareRoot = 10.0; printf(“Square root = %f”, squareRoot);</pre></div>
+</div>
+<p>Actually, the code is perfectly valid. But, wouldn’t this be better:</p>
+<div class="w3-example">
+    <div class="w3-code"><pre>int count;
+float squareRoot = 10.0;
+printf(“Square root = %f”, squareRoot);</pre></div>
+</div>
+<p><b>Naming convention and Consistency!</b></p>
+
+<p>Give a proper name to variables and functions and be consistent with it. </p>
+<div class="w3-example">
+    <div class="w3-code"><pre>int a,b;</pre></div>
+</div>
+<p>Here, a and b are two variables and I have no idea what they do. Instead you can choose name like:</p>
+<div class="w3-example">
+    <div class="w3-code"><pre>int counter, power; </pre></div>
+</div>
+<p>Also, follow a convention while naming. For example:</p>
+<div class="w3-example">
+    <div class="w3-code"><pre>int base_number, powerNumber; </pre></div>
+</div>
+<p>Both conventions: using _ to separate words and using capital letter after first word is popular. However, don’t use both in one program; choose one and be consistent with it.</p>
+<p><b>Start Habit of Using Comments </b></p>
+<p>Comments are part of code that compiler ignores.
+</p><p>
+You can use comments in your program to explain what you are trying to achieve in your program. This helps your fellow programmer to understand the code.
+</p><p>
+You can use comments in C programming by using //. For example:</p>
+<div class="w3-example">
+    <div class="w3-code"><pre>// My first C program
+
+#include <stdio.h>
+int main()
+{
+    printf("Hello, World!\n");   // displays Hello, World! on the screen
+    return 0;
+}</pre></div>
+</div>
+</div>
+</div>
+{% endblock %}

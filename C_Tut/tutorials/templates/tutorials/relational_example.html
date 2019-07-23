@@ -1,0 +1,81 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<p>The following table shows all the relational operators supported by C. Assume variable <b>A</b> holds 10 and variable <b>B</b> holds 20 then −</p>
+<table class="table table-bordered" style="text-align: center">
+<tbody>
+    <tr>
+        <th>Operator</th><th>Description</th><th>Example</th>
+    </tr>
+    <tr>
+        <td>==</td> <td>	Checks if the values of two operands are equal or not. If yes, then the condition becomes true.</td><td> 	(A == B) is not true.</td>
+    </tr>
+    <tr>
+        <td>!= </td><td>	Checks if the values of two operands are equal or not. If the values are not equal, then the condition becomes true. </td><td>	(A != B) is true.</td>
+    </tr>
+    <tr>
+        <td>></td><td> 	Checks if the value of left operand is greater than the value of right operand. If yes, then the condition becomes true.</td><td> 	(A > B) is not true.</td>
+    </tr>
+    <tr>
+        <td>&#60; </td><td>	Checks if the value of left operand is less than the value of right operand. If yes, then the condition becomes true. </td><td>	(A &#60; B) is true.</td>
+    </tr>
+    <tr>
+        <td>>= </td><td>	Checks if the value of left operand is greater than or equal to the value of right operand. If yes, then the condition becomes true. </td><td>	(A >= B) is not true.</td>
+    </tr>
+    <tr>
+        <td>&#60;= </td><td>	Checks if the value of left operand is less than or equal to the value of right operand. If yes, then the condition becomes true.</td><td> 	(A &#60;= B) is true.</td>
+    </tr>
+    </tbody>
+</table>
+<p>Try the following example to understand all the relational operators available in C −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="kwd">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+
+main<span class="pun">() {</span>
+
+   <span class="kwd">int</span> a <span class="pun">=</span> 21<span class="pun">;</span>
+   <span class="kwd">int</span> b <span class="pun">=</span> 10<span class="pun">;</span>
+   <span class="kwd">int</span> c <span class="pun">;</span>
+
+   <span class="kwd">if</span><span class="pun">(</span> a <span class="pun">==</span> b <span class="pun">) {</span>
+      printf<span class="pun">(</span><span class="str">"Line 1 - a is equal to b\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span>
+      printf<span class="pun">(</span><span class="str">"Line 1 - a is not equal to b\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+	
+   <span class="kwd">if</span> <span class="pun">(</span> a <span class="pun">&#60;</span> b <span class="pun">) {</span>
+      printf<span class="pun">(</span><span class="str">"Line 2 - a is less than b\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span>
+      printf<span class="pun">(</span><span class="str">"Line 2 - a is not less than b\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+	
+   <span class="kwd">if</span> <span class="pun">(</span> a <span class="pun">></span> b <span class="pun">) {</span>
+      printf<span class="pun">(</span><span class="str">"Line 3 - a is greater than b\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span>
+      printf<span class="pun">(</span><span class="str">"Line 3 - a is not greater than b\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+   
+   <span class="com">/* Lets change value of a and b */</span>
+   a <span class="pun">=</span> 5<span class="pun">;</span>
+   b <span class="pun">=</span> 20<span class="pun">;</span>
+	
+   <span class="kwd">if</span> <span class="pun">(</span> a <span class="pun">&#60;=</span> b <span class="pun">) {</span>
+      printf<span class="pun">(</span><span class="str">"Line 4 - a is either less than or equal to  b\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+	
+   <span class="kwd">if</span> <span class="pun">(</span> a <span class="pun">>=</span> b <span class="pun">) {</span>
+      printf<span class="pun">(</span><span class="str">"Line 5 - b is either greater than  or equal to b\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre></div>
+</div>
+<p>When you compile and execute the above program, it produces the following result −</p>
+<div class="w3-example">
+<pre>Line 1 - a is not equal to b
+Line 2 - a is not less than b
+Line 3 - a is greater than b
+Line 4 - a is either less than or equal to  b
+Line 5 - b is either greater than  or equal to b</pre></div>
+{% endblock %}

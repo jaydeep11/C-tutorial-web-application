@@ -1,0 +1,102 @@
+{% load widget_tweaks %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/w3.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/loginstyle.css' %}">
+<!--
+<div id="modsignup" class="w3-modal" style="display: block">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+  
+      <div class="w3-center"><br>
+        <img src="{% static 'accounts/images/avatar.png' %}" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="#">
+        <div class="w3-section">
+          <label><b>Username</b></label>
+          <input class="w3-input w3-border-bottom w3-margin-bottom" type="text" placeholder="Enter Username" name="username" required>
+          <label><b>Password</b></label>
+          <input class="w3-input w3-border-bottom w3-margin-bottom" type="password" placeholder="Enter Password" name="pass" required>
+            <label><b>Confirm Password</b></label>
+          <input class="w3-input w3-border-bottom" type="password" placeholder="Enter Password again" name="pass" required>
+          <button class="w3-button w3-block w3-black w3-hover-amber w3-section w3-padding" type="submit">SignUp</button>
+        </div>
+      </form>
+        <div class="w3-container">
+        <b>Already have an Account?</b>
+            <a href="{% url 'accounts:login' %}" style="text-decoration: none">
+            <button class="w3-button w3-block w3-black w3-hover-amber w3-section w3-padding">LogIn</button>
+        </a>
+        </div>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+      </div>
+    </div>
+  </div>-->
+{% if message %}
+    <div id="mod-message" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-black"> 
+        <h2 class="w3-center">ERROR!!!</h2>
+      </header>
+      <div class="w3-container">
+        <p class="w3-center">{{message}}</p>
+      </div>
+      <footer class="w3-container w3-center w3-padding w3-light-grey w3-border-top">
+          <button onclick="document.getElementById('mod-message').style.display='none'" 
+        class="w3-center w3-button w3-black w3-padding">OK</button>
+      </footer>
+    </div>
+  </div>
+{% endif %}
+
+<div class="w3-container">
+<div class="w3-card-4 w3-display-middle" style="max-width: 600px;min-width: 320px">
+    <div class="w3-center w3-margin-bottom"><br>
+        <img src="{% static 'accounts/images/avatar.png' %}" alt="Avatar" style="width:15%;" class="w3-circle">
+      </div>
+
+      <form class="w3-container" action="{% url 'accounts:signup' %}" method="post">
+          {% csrf_token %}
+        <div class="w3-section">
+            <div class="w3-row">
+                <div class="w3-col l3 m4 w3-center w3-margin-top"><label><b>Username</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.username class+="w3-input w3-border-bottom w3-margin-bottom" autocomplete="off" placeholder="Username" %}</div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-col l3 m4 w3-center w3-margin-top"><label><b>Email</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.email class+="w3-input w3-border-bottom w3-margin-bottom" autocomplete="off" placeholder="Email" type='email' %}</div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-col l3 m4 w3-center w3-margin-top"><label><b>First&nbsp;Name</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.first_name class+="w3-input w3-border-bottom w3-margin-bottom" autocomplete="off" placeholder="Enter your first name" %}</div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-col l3 m4 w3-center w3-margin-top"><label><b>Last&nbsp;Name</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.last_name class+="w3-input w3-border-bottom w3-margin-bottom" autocomplete="off" placeholder="Enter your last name" %}</div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-col l3 m4 w3-center w3-margin-top"><label><b>Collage&nbsp;Name</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.collage_name class+="w3-input w3-border-bottom w3-margin-bottom" autocomplete="off" placeholder="Your Collage name" %}</div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-col l3 m4 w3-center w3-margin-top"><label><b>Password</b></label></div>
+                <div class="w3-col l9 m8"> {% render_field form.password class+="w3-input w3-border-bottom w3-margin-bottom" autocomplete="off" placeholder="Password" type="password" %}</div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-col l3 m4 w3-center w3-margin-top"><label><b>Confirm Password</b></label></div>
+                <div class="w3-col l9 m8">{% render_field form.passwordAgain class+="w3-input w3-border-bottom w3-margin-top" autocomplete="off" placeholder="Password Again" type="password" %}</div>
+            </div>
+            <button class="w3-button w3-block w3-black w3-hover-amber w3-section w3-padding" type="submit">SignUp</button>
+        </div>
+      </form>
+        <div class="w3-container">
+        <b>Already have an Account?</b>
+            <a href="{% url 'accounts:login' %}" style="text-decoration: none">
+            <button class="w3-button w3-block w3-black w3-hover-amber w3-section w3-padding">LogIn</button>
+        </a>
+        </div>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+      </div>
+    </div>
+</div>

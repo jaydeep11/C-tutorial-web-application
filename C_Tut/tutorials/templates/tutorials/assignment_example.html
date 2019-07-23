@@ -1,0 +1,106 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<p>The following table lists the assignment operators supported by the C language −</p>
+<table class="table table-bordered" style="text-align: center">
+<tbody>
+    <tr>
+        <th>Operator</th><th>Description</th><th>Example</th>
+    </tr>
+    <tr>
+        <td>=</td> <td>	Simple assignment operator. Assigns values from right side operands to left side operand</td><td> 	C = A + B will assign the value of A + B to C</td>
+    </tr>
+    <tr>
+        <td>+= </td><td>	Add AND assignment operator. It adds the right operand to the left operand and assign the result to the left operand. </td><td>	C += A is equivalent to C = C + A</td>
+    </tr>
+    <tr>
+        <td>-=</td><td> 	Subtract AND assignment operator. It subtracts the right operand from the left operand and assigns the result to the left operand.</td><td> 	C -= A is equivalent to C = C - A</td>
+    </tr>
+    <tr>
+        <td>*=</td><td> 	Multiply AND assignment operator. It multiplies the right operand with the left operand and assigns the result to the left operand.</td><td> 	C *= A is equivalent to C = C * A</td>
+    </tr>
+    <tr>
+        <td>/=</td><td> 	Divide AND assignment operator. It divides the left operand with the right operand and assigns the result to the left operand.</td><td> 	C /= A is equivalent to C = C / A</td>
+    </tr>
+    <tr>
+        <td>%=</td><td> 	Modulus AND assignment operator. It takes modulus using two operands and assigns the result to the left operand.</td><td> 	C %= A is equivalent to C = C % A</td>
+    </tr>
+    <tr>
+        <td>&#60;&#60;=</td><td> 	Left shift AND assignment operator.</td><td> 	C &#60;&#60;= 2 is same as C = C &#60;&#60; 2</td>
+    </tr>
+    <tr>
+        <td>>>=</td><td> 	Right shift AND assignment operator.</td><td> 	C >>= 2 is same as C = C >> 2</td>
+    </tr>
+    <tr>
+        <td>&=</td><td> 	Bitwise AND assignment operator.</td><td> C &= 2 is same as C = C & 2</td>
+    </tr>
+    <tr>
+        <td>^=</td><td> 	Bitwise exclusive OR and assignment operator.</td><td> 	C ^= 2 is same as C = C ^ 2</td>
+    </tr>
+    <tr>
+        <td>|=</td><td> 	Bitwise inclusive OR and assignment operator.</td><td> 	C |= 2 is same as C = C | 2</td>
+    </tr>
+    </tbody>
+</table>
+<p>Try the following example to understand all the assignment operators available in C −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code"><pre><span class="kwd">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+
+main<span class="pun">() {</span>
+
+   <span class="kwd">int</span> a <span class="pun">=</span> 21<span class="pun">;</span>
+   <span class="kwd">int</span> c <span class="pun">;</span>
+
+   c <span class="pun">=</span> a<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 1 - =  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+
+   c <span class="pun">+=</span> a<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 2 - +=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+   
+
+   c <span class="pun">-=</span> a<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 3 - -=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+   
+   c <span class="pun">*=</span> a<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 4 - *=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+   
+   c <span class="pun">/=</span> a<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 5 - /=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>  
+   
+
+   c  <span class="pun">=</span> 200<span class="pun">;</span>
+   c <span class="pun">%=</span>  a<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"Line 6 - %=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+
+   c <span class="pun">&#60;&#60;=</span> 2<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 7 - &#60;&#60;=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+   
+   c <span class="pun">>>=</span> 2<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 8 - >>=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+   
+   c <span class="pun">&=</span> 2<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 9 - &=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+
+   c <span class="pun">^=</span> 2<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 10 - ^=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+
+   c <span class="pun">|=</span> a<span class="pun">;</span>    
+   printf<span class="pun">(</span><span class="str">"Line 11 - |=  Operator Example, Value of c = %d\n"</span>, c <span class="pun">);</span>
+<span class="pun">}</span></pre></div>
+</div>
+<p>When you compile and execute the above program, it produces the following result −</p>
+<div class="w3-example">
+<pre>Line 1 - =  Operator Example, Value of c = 21
+Line 2 - += Operator Example, Value of c = 42
+Line 3 - -= Operator Example, Value of c = 21
+Line 4 - *= Operator Example, Value of c = 441
+Line 5 - /= Operator Example, Value of c = 21
+Line 6 - %= Operator Example, Value of c = 11
+Line 7 - &#60;&#60;= Operator Example, Value of c = 44
+Line 8 - >>= Operator Example, Value of c = 11
+Line 9 - &= Operator Example, Value of c = 2
+Line 10 - ^= Operator Example, Value of c = 0
+Line 11 - |= Operator Example, Value of c = 2</pre></div>
+{% endblock %}

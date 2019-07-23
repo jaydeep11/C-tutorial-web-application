@@ -1,0 +1,96 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="w3-border-top w3-border-bottom">Operators Precedence in C</h2>
+<p>Operator precedence determines the grouping of terms in an expression and decides how an expression is evaluated. Certain operators have higher precedence than others; for example, the multiplication operator has a higher precedence than the addition operator.
+</p><p>
+For example, x = 7 + 3 * 2; here, x is assigned 13, not 20 because operator * has a higher precedence than +, so it first gets multiplied with 3*2 and then adds into 7.
+</p><p>
+Here, operators with the highest precedence appear at the top of the table, those with the lowest appear at the bottom. Within an expression, higher precedence operators will be evaluated first.</p>
+<table class="table table-bordered" style="text-align: center">
+<tbody>
+    <tr>
+        <th>Category</th><th>Description</th><th>Associativity</th>
+    </tr>
+    <tr>
+        <td>Postfix</td> <td>	() [] -> . ++ - -</td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Unary</td><td>	+ - ! ~ ++ - - (type)* & sizeof</td><td>Right to left</td>
+    </tr>
+    <tr>
+        <td>Multiplicative</td> <td>	* / %</td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Additive</td> <td>	+-</td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Shift</td> <td>	&#60;&#60;>></td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Relational</td> <td>&#60;&#60;=>>=</td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Bitwise AND</td> <td>&</td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Bitwise XOR</td> <td>^</td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Bitwise OR</td> <td>|</td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Logical AND</td> <td>&&</td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Logical OR</td> <td>||</td><td> 	Left to right</td>
+    </tr>
+    <tr>
+        <td>Conditional</td> <td>?:</td><td> 	Right to left</td>
+    </tr>
+    <tr>
+        <td>Assignment</td> <td>= += -= *= /= %=>>= &#60;&#60;= &= ^= |=</td><td> 	Right to left</td>
+    </tr>
+    <tr>
+        <td>Comma</td> <td>,</td><td> 	Left to right</td>
+    </tr>
+    </tbody>
+</table>
+<p>Try the following example to understand operator precedence in C −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="kwd">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+
+main<span class="pun">() {</span>
+
+   <span class="kwd">int</span> a <span class="pun">=</span> 20<span class="pun">;</span>    
+   <span class="kwd">int</span> b <span class="pun">=</span> 10<span class="pun">;</span>
+   <span class="kwd">int</span> c <span class="pun">=</span> 15<span class="pun">;</span>
+   <span class="kwd">int</span> d <span class="pun">=</span> 5<span class="pun">;</span>
+   <span class="kwd">int</span> e <span class="pun">;</span>
+ 
+   e <span class="pun">=</span> <span class="pun">(</span>a <span class="pun">+</span> b<span class="pun">)</span> <span class="pun">*</span> c <span class="pun">/</span> d<span class="pun">;</span>      <span class="com">// ( 30 * 15 ) / 5</span>
+   printf<span class="pun">(</span><span class="str">"Value of (a + b) * c / d is : %d\n"</span>,  e <span class="pun">);</span>
+
+   e <span class="pun">=</span> <span class="pun">((</span>a <span class="pun">+</span> b<span class="pun">)</span> <span class="pun">*</span> c <span class="pun">) /</span> d<span class="pun">;</span>      <span class="com">// ( 30 * 15 ) / 5</span>
+   printf<span class="pun">(</span><span class="str">"Value of ((a + b) * c) / d is : %d\n"</span>,  e <span class="pun">);</span>
+
+   e <span class="pun">=</span> <span class="pun">(</span>a <span class="pun">+</span> b<span class="pun">)</span> <span class="pun">*</span> <span class="pun">(</span>c <span class="pun">/</span> d<span class="pun">);</span>      <span class="com">// (30) * (15/5)</span>
+   printf<span class="pun">(</span><span class="str">"Value of (a + b) * (c / d) is  : %d\n"</span>,  e <span class="pun">);</span>
+
+   e <span class="pun">=</span> a <span class="pun">+</span> <span class="pun">(</span>b <span class="pun">*</span> c <span class="pun">)</span> <span class="pun"> / </span>d<span class="pun">;</span>      <span class="com">//  20 + (150/5)</span>
+   printf<span class="pun">(</span><span class="str">"Value of a + (b * c) / d is  : %d\n" </span>,  e <span class="pun">);</span>
+  
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>When you compile and execute the above program, it produces the following result −</p>
+<div class="w3-example">
+<pre>Value of (a + b) * c / d is : 90
+Value of ((a + b) * c) / d is  : 90
+Value of (a + b) * (c / d) is  : 90
+Value of a + (b * c) / d is  : 50</pre></div>
+{% endblock %}

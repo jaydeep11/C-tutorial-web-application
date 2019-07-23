@@ -1,0 +1,155 @@
+{% load i18n %}
+<!DOCTYPE html>
+{% load static %}
+<html style="height: 100%;" lang="en-US">
+<head>
+    <title>{% trans "Quiz" %} | {% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'quizz/w3.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'quizz/theme.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'quizz/quizzstyle.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body style="position:relative;min-height: 100%;top: 0px;">
+        
+        <!--logo bar-->
+        <div class="w3-container w3-border-sand w3-theme-l1 top" id="logo_bar">
+            <img src="{% static 'quizz/images/slogo.png' %}" class="w3-image" style="width: 250px;height: 80px; display: block;position: absolute;">
+        </div>
+
+            <!--navbar on large screen-->
+            <div id="largenav" class="w3-card-2 topnav w3-theme" style="position: relative;top: 0px;">
+            <div style="overflow: auto;">
+    <div class="w3-bar" style="width: 100%;overflow: hidden;">
+        <a class="w3-bar-item w3-button w3-left w3-hover-amber w3-xlarge w3-theme w3-hide-large" href="javascript:void(0)" onclick="w3_open('mySidebar')"><i class="fa fa-caret-square-o-right"></i></a>
+        <a class="w3-bar-item w3-button w3-xlarge w3-hide-large w3-right w3-hover-amber w3-theme-d2" href="javascript:void(0);" onclick="openNav('smallnav')"><i class="fa fa-bars"></i></a>
+        <form action="{% url 'accounts:logout' %}" method="post">
+            {% csrf_token %}
+            <button id="login" class="w3-bar-item w3-button w3-hover-amber w3-right w3-border w3-round-xlarge  w3-hide-small w3-hide-medium" type="submit"><i class="fa fa-sign-out"></i> Logout</button></form>
+        <a href="#" id="services" class="w3-bar-item w3-button w3-hover-amber w3-right w3-padding-16 w3-hide-small w3-hide-medium">Refernces</a>
+        <a href="#" id="contact" class="w3-bar-item w3-button w3-hover-amber w3-right w3-padding-16 w3-hide-small w3-hide-medium">Codingground</a>
+        <a href="#" id ="about" class="w3-bar-item w3-button w3-hover-amber w3-right w3-padding-16 w3-hide-small w3-hide-medium">Exercise</a>
+        <a href="#" id ="about" class="w3-bar-item w3-button w3-hover-amber w3-right w3-padding-16 w3-hide-small w3-hide-medium">Environment setup</a>
+        <a href="{% url 'tutorials:stu_home' %}" id="home" class="w3-bar-item w3-button w3-amber w3-right w3-padding-16 w3-hide-small w3-hide-medium">Home</a>
+        </div>
+            </div>
+            </div>
+        
+        <!--navbar on small-screen////id for signup is different in both size bar-->
+        <div id="smallnav" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large">
+    <a href="{% url 'tutorials:stu_home' %}" id="home" class="w3-bar-item w3-button w3-amber">Home</a>
+    <a href="#" id ="about" class="w3-bar-item w3-button w3-hover-amber">Environment setup</a>
+    <a href="#" id="contact" class="w3-bar-item w3-button w3-hover-amber">Exercise</a>
+    <a href="#" id="services"class="w3-bar-item w3-button w3-hover-amber">Codingground</a>
+            <a href="#" id ="about" class="w3-bar-item w3-button w3-hover-amber">References</a>
+    <a href="#" id="slogin" class="w3-bar-item w3-button w3-hover-amber" onclick="document.getElementById('modlogin').style.display='block'"><i class="fa fa-sign-out"></i> Logout</a>
+  </div>
+        
+        <!-- Content Sidebar -->
+<div class="w3-sidebar w3-collapse w3-card-2 w3-theme-l1" id="mySidebar">
+    <div class="w3-bar-block">
+    <a href="javascript:void(0)" onclick="w3_close('mySidebar')" class="w3-button w3-right w3-xlarge w3-hide-large" title="Close Menu"><i class="fa fa-close"></i></a>
+  <div class="w3-container">
+    <h3 class="w3-margin-top">Tutorials</h3>
+  </div>
+        {% for x in tut_list %}
+            {% if forloop.counter <= stu_progress %}
+                <a class="w3-bar-item w3-button w3-block w3-hover-amber" href="/tutorials/{{x.id}}">{{x.name}}</a>
+            {% else %}
+                <a class="w3-bar-item w3-button w3-block w3-hover-amber w3-disabled" href="/tutorials/{{x.id}}" style="pointer-events: none">{{x.name}}</a>
+            {% endif %}
+        {% endfor %}
+ <!-- <a class="w3-bar-item w3-button w3-block w3-hover-amber" href="#">{{stu_first_name}}</a>
+  <a class="w3-bar-item w3-button w3-hover-amber" href="#">{{stu_progress}}</a>
+  <a class="w3-bar-item w3-button w3-hover-amber" href="#">Program Structure</a>
+  <a class="w3-bar-item w3-button w3-hover-amber" href="#">Basic Syntax</a>
+  <a class="w3-bar-item w3-button w3-hover-amber" href="#">DataTypes</a>
+  <a class="w3-bar-item w3-button w3-hover-amber" href="#">Variables</a>
+  <a class="w3-bar-item w3-button w3-hover-amber" href="#">Storage Classes</a>
+  <a class="w3-bar-item w3-button w3-hover-amber" href="#">Operators</a>
+  <a class="w3-bar-item w3-button w3-hover-amber" href="#">Decision Making</a>
+  <a class="w3-bar-item w3-button w3-hover-amber" href="#">Loops</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Functions</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Scope Rules</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Arrays</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Pointers</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">String</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Structures</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Unions</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Bit Fields</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Typedef</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Input/Output</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">File I/O</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Preprocessors</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Header Files</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Type Casting</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Error handling</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Recursion</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Variable Arguments</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">Memory Management</a>
+      <a class="w3-bar-item w3-button w3-hover-amber" href="#">CommandLine Argument</a>-->
+    </div>
+</div>
+    <!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close('mySidebar')" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <div id="main-content" class="w3-main w3-white" style="margin-left: 270px;">
+        <div class="w3-row">
+            <div id="main" class="w3-col" style="width: 80%;padding: 8px;">
+         {% block content %}
+        {% endblock %}
+            </div>
+        </div>
+    </div>
+        <script>
+// Script for side main navigation
+function w3_open(oid_name) 
+    {
+    if(oid_name=="smallnav")
+        {
+        var x = document.getElementById("smallnav");
+        x.style.width = "500px";
+        x.style.paddingTop = "10%";
+        x.style.display = "block";
+        }
+    if(oid_name=="mySidebar")
+        {
+            if(document.getElementById("smallnav").className.indexOf("w3-show") == -1)
+                {
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("myOverlay").style.display = "block";
+                }
+            else
+                {
+                document.getElementById("smallnav").className = document.getElementById("smallnav").className.replace(" w3-show", "");
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("myOverlay").style.display = "block";
+
+                }
+        }
+    }
+// Close side main navigation
+function w3_close(id_name) {
+    if(id_name=="mySidebar")
+        {
+            document.getElementById(id_name).style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+    else
+        {
+            document.getElementById(id_name).style.display = "none";
+        }
+}
+// Used to toggle the main navigation on smaller screens when clicking on the menu button
+function openNav(name) {
+  var x = document.getElementById(name);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+    </body>
+</html>

@@ -1,0 +1,170 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<p>Constants refer to fixed values that the program may not alter during its execution. These fixed values are also called <b>literals.</b></p>
+
+<p>Constants can be of any of the basic data types like <i>an integer constant, a floating constant, a character constant, or a string literal</i>. There are enumeration constants as well.</p>
+
+<p>Constants are treated just like regular variables except that their values cannot be modified after their definition.</p>
+<h2 class="w3-border-top w3-border-bottom">Integer Literals</h2>
+<p>An integer literal can be a decimal, octal, or hexadecimal constant. A prefix specifies the base or radix: 0x or 0X for hexadecimal, 0 for octal, and nothing for decimal.</p>
+<p>
+An integer literal can also have a suffix that is a combination of U and L, for unsigned and long, respectively. The suffix can be uppercase or lowercase and can be in any order.</p>
+<p>
+Here are some examples of integer literals −</p>
+<div class="w3-example">
+<pre>212         /* Legal */
+215u        /* Legal */
+0xFeeL      /* Legal */
+078         /* Illegal: 8 is not an octal digit */
+032UU       /* Illegal: cannot repeat a suffix */</pre>
+</div>
+<p>Following are other examples of various types of integer literals −</p>
+<div class="w3-example">
+<pre>85         /* decimal */
+0213       /* octal */
+0x4b       /* hexadecimal */
+30         /* int */
+30u        /* unsigned int */
+30l        /* long */
+30ul       /* unsigned long */</pre>
+</div>
+<h2 class="w3-border-top w3-border-bottom">Floating-point Literals</h2>
+<p>A floating-point literal has an integer part, a decimal point, a fractional part, and an exponent part. You can represent floating point literals either in decimal form or exponential form.</p>
+<p>
+While representing decimal form, you must include the decimal point, the exponent, or both; and while representing exponential form, you must include the integer part, the fractional part, or both. The signed exponent is introduced by e or E.</p>
+<p>
+Here are some examples of floating-point literals −</p>
+<div class="w3-example">
+<pre>3.14159       /* Legal */
+314159E-5L    /* Legal */
+510E          /* Illegal: incomplete exponent */
+210f          /* Illegal: no decimal or exponent */
+.e55          /* Illegal: missing integer or fraction */</pre>
+</div>
+<h2 class="w3-border-top w3-border-bottom">Character Constants</h2>
+<p>Character literals are enclosed in single quotes, e.g., 'x' can be stored in a simple variable of <b>char</b> type.</p>
+<p>
+A character literal can be a plain character (e.g., 'x'), an escape sequence (e.g., '\t'), or a universal character (e.g., '\u02C0').
+</p><p>
+There are certain characters in C that represent special meaning when preceded by a backslash for example, newline (\n) or tab (\t).</p>
+<div class="w3-dropdown-click">
+  <button onclick="myFunction()" class="w3-btn w3-hover-amber" style="background-color: #f1f1f1;">Here, you have a list of such escape sequence codes −</button>
+  <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+    <table class="table table-bordered" style="text-align: center">
+      <tbody>
+        <tr>
+            <th>Escape sequence</th><th>Meaning</th>
+          </tr>
+          <tr>
+              <td>\\</td><td>\ character</td>
+          <tr>  <td>\'</td> 	<td>' character</td></tr>
+          <tr>  <td>\"</td> 	<td>" character</td></tr>
+          <tr><td>\?</td> 	<td>? character</td></tr>
+          <tr><td>\a</td>   <td>Alert or bell</td></tr>
+          <tr><td>\b</td><td> Backspace</td></tr>
+          <tr><td>\f</td><td>Form feed</td></tr>
+          <tr><td>\n</td> 	<td>Newline</td></tr>
+          <tr><td>\r</td> 	<td>Carriage return</td></tr>
+          <tr><td>\t</td> 	<td>Horizontal tab</td></tr>
+          <tr><td>\v</td><td> 	Vertical tab</td></tr>
+          <tr><td>\ooo</td> 	<td>Octal number of one to three digits</td></tr>
+          <tr><td>\xhh . . .</td><td> 	Hexadecimal number of one or more digits</td></tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+<p>Following is the example to show a few escape sequence characters −</p>
+<div class="w3-example"><h3>Example</h3><div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+
+<span class="kwd">int</span> <span>main</span><span class="pun">() {</span>
+   <span>printf</span><span class="pun">(</span><span class="str">"Hello\tWorld\n\n"</span><span class="pun">);</span>
+
+   <span class="kwd">return</span> <span>0</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example"><pre>Hello World</pre></div>
+<h2 class="w3-border-top w3-border-bottom">String Literals</h2>
+<p>String literals or constants are enclosed in double quotes "". A string contains characters that are similar to character literals: plain characters, escape sequences, and universal characters.
+</p><p>
+You can break a long line into multiple lines using string literals and separating them using white spaces.
+</p><p>
+Here are some examples of string literals. All the three forms are identical strings.</p>
+<div class="w3-example">
+<pre>"hello, dear"
+
+"hello, \
+
+dear"
+
+"hello, " "d" "ear"</pre></div>
+<h2 class="w3-border-top w3-border-bottom">Defining Constants</h2>
+<p>There are two simple ways in C to define constants −</p>
+<ul>
+    <li><p>Using <b>#define</b> preprocessor.</p></li>
+    <li><p>Using <b>const</b> keyword.</p></li>
+</ul>
+<h2 class="w3-border-top w3-border-bottom">The #define Preprocessor</h2>
+<p>Given below is the form to use #define preprocessor to define a constant −</p>
+<div class="w3-example"><pre>#define identifier value</pre></div>
+<p>The following example explains it in detail −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+        <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+
+<span class="com">#define</span> <span>LENGTH</span> <span class="str">10</span>   
+<span class="com">#define</span> <span>WIDTH</span>  <span class="str">5</span>
+<span class="com">#define</span> <span>NEWLINE</span> <span class="str">'\n'</span>
+
+<span class="kwd">int</span> main<span class="pun">() {</span>
+   <span class="kwd">int</span> area<span class="pun">;</span>  
+  
+   area <span class="pun">=</span> LENGTH <span class="pun">*</span> WIDTH<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"value of area : %d"</span>, area<span class="pun">);</span>
+   printf<span class="pun">(</span><span class="str">"%c"</span>, NEWLINE<span class="pun">);</span>
+
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre></div>
+</div>
+    <p>When the above code is compiled and executed, it produces the following result −</p>
+    <div class="w3-example"><pre>value of area : 50</pre></div>
+    <h2 class="w3-border-top w3-border-bottom">The const Keyword</h2>
+    <p>You can use <b>const</b> prefix to declare constants with a specific type as follows −</p>
+    <div class="w3-example"><pre>const type variable = value;</pre></div>
+    <p>The following example explains it in detail −</p>
+    <div class="w3-example">
+    <h3>Example</h3>
+        <div class="w3-code"><pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+
+<span class="kwd">int</span> main<span class="pun">() {</span>
+   <span class="kwd">const int</span>  LENGTH <span class="pun">=</span> 10<span class="pun">;</span>
+   <span class="kwd">const int</span>  WIDTH <span class="pun">=</span> 5<span class="pun">;</span>
+   <span class="kwd">const char</span> NEWLINE <span class="pun">=</span> '\n'<span class="pun">;</span>
+   <span class="kwd">int</span> area<span class="pun">;</span>  
+   
+   area <span class="pun">=</span> LENGTH <span class="pun">*</span> WIDTH<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"value of area : %d"</span>, area<span class="pun">);</span>
+   printf<span class="pun">(</span><span class="str">"%c"</span>, NEWLINE<span class="pun">);</span>
+
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre></div>
+    </div>
+        <p>When the above code is compiled and executed, it produces the following result −</p>
+        <div class="w3-example"><pre>value of area : 50</pre></div>
+        <p>Note that it is a good programming practice to define constants in CAPITALS.</p>
+<script>
+function myFunction() {
+  var x = document.getElementById("Demo");
+  if (x.className.indexOf("w3-show") == -1) { 
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<p>The following table shows all the arithmetic operators supported by the C language. Assume variable <b>A</b> holds 10 and variable <b>B</b> holds 20 then −</p>
+<table class="table table-bordered" style="text-align: center">
+<tbody>
+    <tr>
+        <th>Operator</th><th>Description</th><th>Example</th>
+    </tr>
+    <tr>
+        <td>+</td> <td>	Adds two operands.</td><td> 	A + B = 30</td>
+    </tr>
+    <tr>
+        <td>− </td><td>	Subtracts second operand from the first. </td><td>	A − B = -10</td>
+    </tr>
+    <tr>
+        <td>*</td><td> 	Multiplies both operands.</td><td> 	A * B = 200</td>
+    </tr>
+    <tr>
+        <td>/ </td><td>	Divides numerator by de-numerator. </td><td>	B / A = 2</td>
+    </tr>
+    <tr>
+        <td>% </td><td>	Modulus Operator and remainder of after an integer division. </td><td>	B % A = 0</td>
+    </tr>
+    <tr>
+        <td>++ </td><td>	Increment operator increases the integer value by one.</td><td> 	A++ = 11</td>
+    </tr>
+    <tr>
+        <td>-- </td><td>	Decrement operator decreases the integer value by one.</td><td> 	A-- = 9</td>
+    </tr>
+    </tbody>
+</table>
+<p>Try the following example to understand all the arithmetic operators available in C −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+
+main<span class="pun">() {</span>
+
+   <span class="kwd">int</span> a <span class="pun">=</span> 21<span class="pun">;</span>
+   <span class="kwd">int</span> b <span class="pun">=</span> 10<span class="pun">;</span>
+   <span class="kwd">int</span> c <span class="pun">;</span>
+
+   c <span class="pun">=</span> a <span class="pun">+</span> b<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"Line 1 - Value of c is %d\n"</span>, c <span class="pun">);</span>
+	
+   c <span class="pun">=</span> a <span class="pun">-</span> b<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"Line 2 - Value of c is %d\n"</span>, c <span class="pun">);</span>
+	
+   c <span class="pun">=</span> a <span class="pun">*</span> b<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"Line 3 - Value of c is %d\n"</span>, c <span class="pun">);</span>
+	
+   c <span class="pun">=</span> a <span class="pun">/</span> b<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"Line 4 - Value of c is %d\n"</span>, c <span class="pun">);</span>
+	
+   c <span class="pun">=</span> a <span class="pun">%</span> b<span class="pun">;</span>
+   printf<span class="pun">(</span><span class="str">"Line 5 - Value of c is %d\n"</span>, c <span class="pun">);</span>
+	
+   c <span class="pun">=</span> a<span class="pun">++;</span> 
+   printf<span class="pun">(</span><span class="str">"Line 6 - Value of c is %d\n"</span>, c <span class="pun">);</span>
+	
+   c <span class="pun">=</span> a<span class="pun">--;</span> 
+   printf<span class="pun">(</span><span class="str">"Line 7 - Value of c is %d\n"</span>, c <span class="pun">);</span>
+<span class="pun">}</span></pre></div>
+</div>
+<p>When you compile and execute the above program, it produces the following result −</p>
+<div class="w3-example"><pre>Line 1 - Value of c is 31
+Line 2 - Value of c is 11
+Line 3 - Value of c is 210
+Line 4 - Value of c is 2
+Line 5 - Value of c is 1
+Line 6 - Value of c is 21
+Line 7 - Value of c is 22</pre></div>
+{% endblock %}

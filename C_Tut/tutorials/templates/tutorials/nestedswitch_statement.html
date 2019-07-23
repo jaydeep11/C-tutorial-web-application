@@ -1,0 +1,61 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="w3-border-top w3-border-bottom">Nested Switch statements</h2>
+<p>It is possible to have a switch as a part of the statement sequence of an outer switch. Even if the case constants of the inner and outer switch contain common values, no conflicts will arise.</p>
+<h3><b>Syntax</b></h3>
+<p>The syntax for a nested switch statement is as follows −</p>
+<div class="w3-example">
+<pre>switch(ch1) {
+
+   case 'A': 
+      printf("This A is part of outer switch" );
+		
+      switch(ch2) {
+         case 'A':
+            printf("This A is part of inner switch" );
+            break;
+         case 'B': /* case code */
+      }
+	  
+      break;
+   case 'B': /* case code */
+}</pre>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="kwd">int</span> main <span class="pun">() {</span>
+
+   <span class="com">/* local variable definition */</span>
+   <span class="kwd">int</span> a <span class="pun">=</span> 100<span class="pun">;</span>
+   <span class="kwd">int</span> b <span class="pun">=</span> 200<span class="pun">;</span>
+ 
+   <span class="kwd">switch</span><span class="pun">(</span>a<span class="pun">) {</span>
+   
+      <span class="kwd">case</span> <span class="str">100</span> <span class="pun">:</span> 
+         printf<span class="pun">(</span><span class="str">"This is part of outer switch\n"</span>, a<span class="pun">);</span>
+      
+         <span class="kwd">switch</span><span class="pun">(</span>b<span class="pun">) {</span>
+            <span class="kwd">case</span> <span class="str">200</span> <span class="pun">:</span>
+               printf<span class="pun">(</span><span class="str">"This is part of inner switch\n"</span>, a<span class="pun">);</span>
+         <span class="pun">}</span>
+   <span class="pun">}</span>
+   
+   printf<span class="pun">(</span><span class="str">"Exact value of a is : %d\n"</span>, a<span class="pun">);</span>
+   printf<span class="pun">(</span><span class="str">"Exact value of b is : %d\n"</span>, b<span class="pun">);</span>
+ 
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example">
+<pre>This is part of outer switch
+This is part of inner switch
+Exact value of a is : 100
+Exact value of b is : 200</pre></div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="w3-border-top w3-border-bottom">if....else Statement</h2>
+<p>An <b>if</b> statement can be followed by an optional <b>else</b> statement, which executes when the Boolean expression is false.</p>
+<h3><b>Syntax</b></h3>
+<p>The syntax of an <b>if...else</b> statement in C programming language is −</p>
+<div class="w3-example">
+<pre>if(boolean_expression) {
+   /* statement(s) will execute if the boolean expression is true */
+} else {
+   /* statement(s) will execute if the boolean expression is false */
+}</pre>
+</div>
+<p>If the Boolean expression evaluates to <b>true</b>, then the <b>if block</b> will be executed, otherwise, the <b>else block</b> will be executed.
+</p><p>
+    C programming language assumes any <b>non-zero</b> and <b>non-null</b> values as <b>true</b>, and if it is either <b>zero</b> or <b>null</b>, then it is assumed as <b>false value</b>.</p>
+<h3><b>FlowChart</b></h3>
+<img src="{% static 'tutorials/images/ifelse.png' %}" alt="Decision making flow chart" style="margin-left: auto; margin-right: auto;max-width: 100%;display: block">
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="kwd">int</span> main <span class="pun">() {</span>
+
+   <span class="com">/* local variable definition */</span>
+   <span class="kwd">int</span> a <span class="pun">=</span> 100<span class="pun">;</span>
+ 
+   <span class="com">/* check the boolean condition */</span>
+   <span class="kwd">if</span><span class="pun">(</span> a <span class="pun">&#60;</span> 20 <span class="pun">) {</span>
+       <span class="com">/* if condition is true then print the following */</span>
+      printf<span class="pun">(</span><span class="str">"a is less than 20\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span>
+      <span class="com">/* if condition is false then print the following */</span>
+      printf<span class="pun">(</span><span class="str">"a is not less than 20\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+   
+   printf<span class="pun">(</span><span class="str">"value of a is : %d\n"</span>, a<span class="pun">);</span>
+   
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre></div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example">
+<pre>a is not less than 20;
+value of a is : 100</pre></div>
+<h2 class="w3-border-top w3-border-bottom">if....else if....else Statement</h2>
+<p>An <b>if</b> statement can be followed by an optional <b>else if...else</b> statement, which is very useful to test various conditions using single if...else if statement.
+</p><p>
+When using if...else if..else statements, there are few points to keep in mind −</p>
+<ul>
+    <li><p>An if can have zero or one else's and it must come after any else if's.</p></li>
+
+    <li><p>An if can have zero to many else if's and they must come before the else.</p></li>
+
+    <li><p>Once an else if succeeds, none of the remaining else if's or else's will be tested.</p></li>
+</ul>
+<h3><b>Syntax</b></h3>
+<p>The syntax of an <b>if...else if...else</b> statement in C programming language is −</p>
+<div class="w3-example">
+<pre>if(boolean_expression 1) {
+   /* Executes when the boolean expression 1 is true */
+} else if( boolean_expression 2) {
+   /* Executes when the boolean expression 2 is true */
+} else if( boolean_expression 3) {
+   /* Executes when the boolean expression 3 is true */
+} else {
+   /* executes when the none of the above condition is true */
+}</pre>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="kwd">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="kwd">int</span> main <span class="pun">() {</span>
+
+   <span class="com">/* local variable definition */</span>
+   <span class="kwd">int</span> a <span class="pun">=</span> 10<span class="pun">;</span>
+ 
+  <span class="com">/* check the boolean condition using if statement */</span>
+   <span class="kwd">if</span><span class="pun">(</span> a <span class="pun">==</span> 10 <span class="pun">) {</span>
+      <span class="com">/* if condition is true then print the following */</span>
+      printf<span class="pun">(</span><span class="str">"Value of a is 10\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span> <span class="kwd">else if</span><span class="pun">(</span> a <span class="pun">==</span> 20 <span class="pun">) {</span>
+      <span class="com">/* if else if condition is true */</span>
+      printf<span class="pun">(</span><span class="str">"Value of a is 20\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span> <span class="kwd">else if</span><span class="pun">(</span> a <span class="pun">==</span> 30 <span class="pun">) {</span>
+      <span class="com">/* if else if condition is true  */</span>
+      printf<span class="pun">(</span><span class="str">"Value of a is 30\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span>
+      <span class="com">/* if none of the conditions is true */</span>
+      printf<span class="pun">(</span><span class="str">"None of the values is matching\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+   
+   printf<span class="pun">(</span><span class="str">"Exact value of a is: %d\n"</span>, a<span class="pun">);</span>
+ 
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre></div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example">
+<pre>None of the values is matching
+Exact value of a is: 100</pre>
+</div>
+{% endblock %}

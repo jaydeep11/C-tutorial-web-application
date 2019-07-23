@@ -1,0 +1,50 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<p>Decision making structures require that the programmer specifies one or more conditions to be evaluated or tested by the program, along with a statement or statements to be executed if the condition is determined to be true, and optionally, other statements to be executed if the condition is determined to be false.
+</p><p>
+Show below is the general form of a typical decision making structure found in most of the programming languages −</p>
+<img src="{% static 'tutorials/images/if_flow.png' %}" alt="Decision making flow chart" style="margin-left: auto; margin-right: auto;max-width: 100%;display: block">
+<p>C programming language assumes any <b>non-zero</b> and <b>non-null</b> values as <b>true</b>, and if it is either <b>zero</b> or <b>null</b>, then it is assumed as <b>false</b> value.
+</p><p>
+C programming language provides the following types of decision making statements.</p>
+<table class="table table-bordered">
+<tbody>
+    <tr>
+    <th>Sr.&nbsp;No.</th>
+        <th style="text-align: center">Statement & Description</th>
+    </tr>
+    <tr>
+    <td class="ts">1</td>
+        <td><p><b><a href="{% url 'tutorials:if_statement' %}">if statement</a></b></p><p>An <b>if statement</b> consists of a boolean expression followed by one or more statements.</p></td>
+    </tr>
+    <tr>
+    <td class="ts">2</td>
+        <td><p><b><a href="{% url 'tutorials:ifelse_statement' %}">if....else statement</a></b></p><p>An <b>if statement</b> can be followed by an optional <b>else statement</b>, which executes when the Boolean expression is false.</p></td>
+    </tr>
+    <tr>
+    <td class="ts">3</td>
+        <td><p><b><a href="{% url 'tutorials:nestedif_statement' %}">nested if statements</a></b></p><p>You can use one <b>if</b> or <b>else if</b> statement inside another <b>if</b> or <b>else if</b> statement(s).</p></td>
+    </tr>
+    <tr>
+    <td class="ts">4</td>
+        <td><p><b><a href="{% url 'tutorials:switch_statement' %}">switch statement</a></b></p><p>A <b>switch</b> statement allows a variable to be tested for equality against a list of values.</p></td>
+    </tr>
+    <tr>
+    <td class="ts">5</td>
+        <td><p><b><a href="{% url 'tutorials:nestedswitch_statement' %}">nested switch statements</a></b></p><p>You can use one <b>switch</b> statement inside another <b>switch</b> statement(s).</p></td>
+    </tr>
+    </tbody>
+    </table>
+<h2 class="w3-border-top w3-border-bottom">The ? : Operator</h2>
+<p>We have covered <b>conditional operator ? :</b> in the previous chapter which can be used to replace <b>if...else</b> statements. It has the following general form −</p>
+<div class="w3-example"><pre>Exp1 ? Exp2 : Exp3;</pre></div>
+<p>Where Exp1, Exp2, and Exp3 are expressions. Notice the use and placement of the colon.</p>
+<p>The value of a ? expression is determined like this −</p>
+<ul>
+<li><p>Exp1 is evaluated. If it is true, then Exp2 is evaluated and becomes the value of the entire ? expression.</p></li>
+    <li><p>If Exp1 is false, then Exp3 is evaluated and its value becomes the value of the expression.</p></li>
+</ul>
+
+{% endblock %}

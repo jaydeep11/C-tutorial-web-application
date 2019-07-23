@@ -1,0 +1,73 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<p>Before we study the basic building blocks of the C programming language, let us look at a bare minimum C program structure so that we can take it as a reference in the upcoming chapters.</p>
+<h2 class="w3-border-top w3-border-bottom">Hello World Example</h2>
+<p>A C program basically consists of the following parts −</p>
+<ul>
+    <li>Preprocessor Commands</li>
+    <li>Functions</li>
+    <li>Variables</li>
+    <li>Statements & Expressions</li>
+    <li>Comments</li>
+</ul>
+<p>Let us look at a simple code that would print the words "Hello World" −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code notranslate">
+        <pre><span class="com">#include </span><span class="str">&#60;stdio.h&#62;</span>
+        
+<span class="kwd">int </span><span>main</span><span class="pun">()&nbsp;{</span>
+        
+    <span class="com">/* my first program in c */</span>
+    <span>printf</span><span class="pun">(</span><span class="str">"Hello ,World!!\n"</span><span class="pun">);</span>
+        
+    <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>Let us take a look at the various parts of the above program −</p>
+<ul>
+    <li>
+
+        The first line of the program #include &#60;stdio.h&#62; is a preprocessor command, which tells a C compiler to include stdio.h file before going to actual compilation.</li>
+
+    <li>The next line int main() is the main function where the program execution begins.</li>
+
+    <li>The next line /*...*/ will be ignored by the compiler and it has been put to add additional comments in the program. So such lines are called comments in the program.</li>
+
+    <li>The next line printf(...) is another function available in C which causes the message "Hello, World!" to be displayed on the screen.</li>
+
+    <li>The next line return 0; terminates the main() function and returns the value 0.</li>
+
+</ul>
+<h2>Complie and Execute C program</h2>
+<p>Let us see how to save the source code in a file, and how to compile and run it. Following are the simple steps −</p>
+<ul>
+    <li>Open a text editor and add the above-mentioned code.</li>
+
+    <li>Save the file as hello.c</li>
+
+    <li>Open a command prompt and go to the directory where you have saved the file.</li>
+
+    <li>Type gcc hello.c and press enter to compile your code.</li>
+
+    <li>If there are no errors in your code, the command prompt will take you to the next line and would generate a.out executable file.</li>
+
+    <li>Now, type a.out to execute your program.</li>
+
+    <li>You will see the output "Hello World" printed on the screen.</li>
+</ul>
+<div class="w3-example">
+<pre>$ gcc hello.c
+$ ./a.out
+Hello, World!</pre>
+</div>
+<p>Make sure the gcc compiler is in your path and that you are running it in the directory containing the source file hello.c.</p>
+<hr>
+<div class="w3-example w3-center">
+<h4>Let's go to exercise section for moving onto next tutorial.......</h4>
+    <a href="{% url 'quizz:quiz_question' tutorial_id=tut_id %}" class="w3-btn w3-margin-bottom w3-black w3-hover-amber">OK!!</a>
+</div>
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<p>Data types in c refer to an extensive system used for declaring variables or functions of different types. The type of a variable determines how much space it occupies in storage and how the bit pattern stored is interpreted.</p>
+<p>The types in C can be classified as follows −</p>
+<table class="table table-bordered">
+<tbody>
+    <tr>
+    <th style="text-align: center">Sr.&nbsp;No.</th>
+        <th style="text-align: center">Types & Description</th>
+    </tr>
+    <tr>
+    <td class="ts">1</td>
+    <td><p><b>Basic Types</b></p><p>They are arithmetic types and are further classified into: (a) integer types and (b) floating-point types.</p></td>
+    </tr>
+    <tr>
+    <td class="ts">2</td>
+    <td><p><b>Enumerated types</b></p><p>They are again arithmetic types and they are used to define variables that can only assign certain discrete integer values throughout the program.</p></td>
+    </tr>
+    <tr>
+    <td class="ts">3</td>
+    <td><p><b>The type void</b></p><p>The type specifier <i>void</i> indicates that no value is available.</p></td>
+    </tr>
+    <tr>
+    <td class="ts">4</td>
+    <td><p><b>Derived types</b></p><p>They include (a) Pointer types, (b) Array types, (c) Structure types, (d) Union types and (e) Function types.</p></td>
+    </tr>
+    </tbody>
+</table>
+<p>The array types and structure types are referred collectively as the aggregate types. The type of a function specifies the type of the function's return value. We will see the basic types in the following section, where as other types will be covered in the upcoming chapters.</p>
+<h2 class="w3-border-top w3-border-bottom">Integer Types</h2>
+<p>The following table provides the details of standard integer types with their storage sizes and value ranges −</p>
+<table class="table table-bordered" style="text-align: center">
+<tbody>
+    <tr>
+    <th style="text-align: center">Type</th>
+    <th style="text-align: center">Storage size</th>
+    <th style="text-align: center">Value Range</th>
+    </tr>
+    <tr>
+        <td>char</td><td>1 byte</td><td>-128 to 127 or 0 to 255</td>
+    </tr>
+    <tr>
+        <td>unsigned&nbsp;char</td> <td>1&nbsp;byte</td><td>0&nbsp; to&nbsp; 255</td>
+    </tr>
+    <tr>
+        <td>signed&nbsp;char</td><td>1&nbsp;byte</td><td>-128&nbsp;to&nbsp;127</td>
+    </tr>
+    <tr>
+        <td>int</td><td>2&nbsp;or&nbsp;4&nbsp;bytes</td><td>-32,768&nbsp;to&nbsp;32,767&nbsp;or&nbsp;-2,147,483,648&nbsp;to&nbsp; 2,147,483,647</td>
+    </tr>
+    <tr>
+        <td>unsigned&nbsp;int</td><td>2&nbsp;or&nbsp;4&nbsp;bytes</td><td>0&nbsp;to&nbsp;65,535&nbsp;or&nbsp;0&nbsp;to&nbsp;4,294,967,295</td>
+    </tr>
+    <tr>
+        <td>short</td><td>2&nbsp;bytes</td><td>-32,768&nbsp;to&nbsp;32,767</td>
+    </tr>
+    <tr>
+        <td>unsigned&nbsp;short</td><td>2&nbsp;bytes</td><td>0&nbsp;to&nbsp;65,535</td>
+    </tr>
+    <tr>
+        <td>long</td><td>4&nbsp;bytes</td><td>-2,147,483,648&nbsp;to&nbsp;2,147,483,647</td>
+    </tr>
+    <tr>
+        <td>unsigned&nbsp;long</td><td>4&nbsp;bytes</td><td>0&nbsp;to&nbsp;4,294,967,295</td>
+    </tr>
+    </tbody>
+</table>
+<p>To get the exact size of a type or a variable on a particular platform, you can use the sizeof operator. The expressions sizeof(type) yields the storage size of the object or type in bytes. Given below is an example to get the size of int type on any machine −</p>
+<div class="w3-example">
+    <h3>Example</h3>
+    <div class="w3-code notranslate">
+<span class="com">#include&nbsp;</span><span class="str">&#60;stdio.h&#62;</span><br>
+<span class="com">#include&nbsp;</span><span class="str">&#60;limits.h&#62;</span><br><br>
+    <span class="kwd">int&nbsp;</span><span>main&nbsp;</span><span class="pun">()&nbsp;{</span><br>
+    <span>&nbsp;&nbsp;&nbsp;printf</span><span class="pun">(</span><span class="str">"Storage size for int : %d \n"</span><span class="pun">,&nbsp;</span><span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">int</span><span class="pun">));</span><br><br>
+    <span class="kwd">&nbsp;&nbsp;&nbsp;return&nbsp;</span><span>0</span><span class="pun">;<br>}</span>
+    </div>
+</div>
+<p>When you compile and execute the above program, it produces the following result on Linux −</p>
+<div class="w3-example">Storage size for int : 4</div>
+<h2>Floating-Point Types</h2>
+<p>The following table provide the details of standard floating-point types with storage sizes and value ranges and their precision −</p>
+<table class="table table-bordered" style="text-align: center">
+<tbody>
+    <tr>
+        <th>Type</th><th>Storage size</th><th>Value range</th><th>Precision</th>
+    </tr>
+    <tr>
+        <td>float</td><td>4 byte</td><td>1.2E-38 to 3.4E+38</td><td>6 decimal places</td>
+    </tr>
+    <tr>
+        <td>double</td><td>8 byte</td><td> 	2.3E-308 to 1.7E+308</td><td> 	15 decimal places</td>
+    </tr>
+    <tr>
+        <td>long double</td><td>10 byte</td> <td>3.4E-4932 to 1.1E+4932</td><td> 	19 decimal places</td>
+    </tr>
+    </tbody>
+</table>
+<p>The header file float.h defines macros that allow you to use these values and other details about the binary representation of real numbers in your programs. The following example prints the storage space taken by a float type and its range values −</p>
+<div class="w3-example">
+    <h3>Example</h3>
+    <div class="w3-code notranslate">
+<span class="com">#include&nbsp;</span><span class="str">&#60;stdio.h&#62;</span><br>
+<span class="com">#include&nbsp;</span><span class="str">&#60;float.h&#62;</span><br><br>
+    <span class="kwd">int&nbsp;</span><span>main&nbsp;</span><span class="pun">()&nbsp;{</span><br>
+    <span>&nbsp;&nbsp;&nbsp;printf</span><span class="pun">(</span><span class="str">"Storage size for float : %d \n"</span><span class="pun">,&nbsp;</span><span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">float</span><span class="pun">));</span><br>
+    <span>&nbsp;&nbsp;&nbsp;printf</span><span class="pun">(</span><span class="str">"Minimum float positive value: %E\n"</span><span class="pun">,&nbsp;</span><span>FLT_MIN&nbsp;</span><span class="pun">);</span><br><span>&nbsp;&nbsp;&nbsp;printf</span><span class="pun">(</span><span class="str">"Maximum float positive value: %E\n"</span><span class="pun">,&nbsp;</span><span>FLT_MAX&nbsp;</span><span class="pun">);</span><br><span>&nbsp;&nbsp;&nbsp;printf</span><span class="pun">(</span><span class="str">"Precision value: %d\n"</span><span class="pun">,&nbsp;</span><span>FLT_DIG&nbsp;</span><span class="pun">);</span><br><br>
+    <span class="kwd">&nbsp;&nbsp;&nbsp;return&nbsp;</span><span>0</span><span class="pun">;<br>}</span>
+    </div>
+</div>
+<p>When you compile and execute the above program, it produces the following result on Linux −</p>
+<div class="w3-example">
+<pre>Storage size for float : 4
+Minimum float positive value: 1.175494E-38
+Maximum float positive value: 3.402823E+38
+Precision value: 6</pre></div>
+<h2>The void Type</h2>
+<p>The void type specifies that no value is available. It is used in three kinds of situations −</p>
+<table class="table table-bordered">
+<tbody>
+    <tr>
+        <th style="text-align: center">Sr.No.</th> <th style="text-align: center">Types & Description</th>
+    </tr>
+    <tr>
+    <td class="ts">1</td>
+        <td><p><b>Function returns as void</b></p><p>There are various functions in C which do not return any value or you can say they return void. A function with no return value has the return type as void. For example,<b> void exit (int status);</b></p></td>
+    </tr>
+    <tr>
+    <td class="ts">2</td>
+    <td><p><b>Function arguments as void</b></p><p>There are various functions in C which do not accept any parameter. A function with no parameter can accept a void. For example,<b> int rand(void);</b></p></td>
+    </tr>
+    <tr>
+    <td class="ts">3</td>
+    <td><p><b>Pointers to void</b></p><p>A pointer of type void * represents the address of an object, but not its type. For example, a memory allocation function<b> void *malloc( size_t size );</b> returns a pointer to void which can be casted to any data type.</p></td>
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}

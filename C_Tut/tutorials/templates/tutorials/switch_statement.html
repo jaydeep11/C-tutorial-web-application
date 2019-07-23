@@ -1,0 +1,82 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="w3-border-top w3-border-bottom">Switch statements</h2>
+<p>A <b>switch</b> statement allows a variable to be tested for equality against a list of values. Each value is called a case, and the variable being switched on is checked for each <b>switch case.</b></p>
+<h3><b>Syntax</b></h3>
+<p>The syntax for a <b>switch</b> statement in C programming language is as follows −</p>
+<div class="w3-example">
+    <pre><span class="kwd">switch</span><span class="pun">(</span>expression<span class="pun">) {</span>
+
+   <span class="kwd">case</span> constant-expression  <span class="pun">:</span>
+      statement<span class="pun">(</span>s<span class="pun">);</span>
+      <span class="kwd">break</span><span class="pun">;</span> <span class="com">/* optional */</span>
+	
+   <span class="kwd">case</span> constant-expression  <span class="pun">:</span>
+      statement<span class="pun">(</span>s<span class="pun">);</span>
+      <span class="kwd">break</span><span class="pun">;</span> <span class="com">/* optional */</span>
+  
+   <span class="com">/* you can have any number of case statements */</span>
+   <span class="kwd">default</span> <span class="pun">:</span> <span class="com">/* Optional */</span>
+   statement<span class="pun">(</span>s<span class="pun">);</span>
+<span class="pun">}</span></pre>
+</div>
+<p>The following rules apply to a <b>switch</b> statement −</p>
+<ul>
+    <li><p>The expression used in a switch statement must have an integral or enumerated type, or be of a class type in which the class has a single conversion function to an integral or enumerated type.</p></li>
+
+    <li><p>You can have any number of case statements within a switch. Each case is followed by the value to be compared to and a colon.</p></li>
+
+    <li><p>The constant-expression for a case must be the same data type as the variable in the switch, and it must be a constant or a literal.</p></li>
+
+    <li><p>When the variable being switched on is equal to a case, the statements following that case will execute until a break statement is reached.</p></li>
+
+    <li><p>When a break statement is reached, the switch terminates, and the flow of control jumps to the next line following the switch statement.</p></li>
+
+    <li><p>Not every case needs to contain a break. If no break appears, the flow of control will fall through to subsequent cases until a break is reached.</p></li>
+
+    <li><p>A switch statement can have an optional default case, which must appear at the end of the switch. The default case can be used for performing a task when none of the cases is true. No break is needed in the default case.</p></li>
+</ul>
+<h3><b>FlowChart</b></h3>
+<img src="{% static 'tutorials/images/switch.png' %}" alt="Decision making flow chart" style="margin-left: auto; margin-right: auto;max-width: 100%;display: block">
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="kwd">int</span> main <span class="pun">() {</span>
+
+   <span class="com">/* local variable definition */</span>
+   <span class="kwd">char</span> grade <span class="pun">=</span> <span class="str">'B'</span><span class="pun">;</span>
+
+   <span class="kwd">switch</span><span class="pun">(</span>grade<span class="pun">) {</span>
+      <span class="kwd">case</span> <span class="str">'A'</span> <span class="pun">:</span>
+         printf<span class="pun">(</span><span class="str">"Excellent!\n"</span> <span class="pun">);</span>
+         <span class="kwd">break</span><span class="pun">;</span>
+      <span class="kwd">case</span> <span class="str">'B'</span> <span class="pun">:</span>
+      <span class="kwd">case</span> <span class="str">'C'</span> <span class="pun">:</span>
+         printf<span class="pun">(</span><span class="str">"WellDone\n"</span> <span class="pun">);</span>
+         <span class="kwd">break</span><span class="pun">;</span>
+      <span class="kwd">case</span> <span class="str">'D'</span> <span class="pun">:</span>
+         printf<span class="pun">(</span><span class="str">"You passed\n"</span> <span class="pun">);</span>
+         <span class="kwd">break</span><span class="pun">;</span>
+      <span class="kwd">case</span> <span class="str">'F'</span> <span class="pun">:</span>
+         printf<span class="pun">(</span><span class="str">"Better Try Again\n"</span> <span class="pun">);</span>
+         <span class="kwd">break</span><span class="pun">;</span>
+      <span class="kwd">default</span> <span class="pun">:</span>
+         printf<span class="pun">(</span><span class="str">"Invalid Grade\n"</span> <span class="pun">);</span>
+   <span class="pun">}</span>
+   
+   printf<span class="pun">(</span><span class="str">"Your grade is  %c\n"</span>, grade<span class="pun">);</span>
+ 
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example">
+<pre>Well done
+Your grade is B</pre>
+</div>
+{% endblock %}

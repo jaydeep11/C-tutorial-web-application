@@ -1,0 +1,155 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<p>A scope in any programming is a region of the program where a defined variable can have its existence and beyond that variable it cannot be accessed. There are three places where variables can be declared in C programming language −</p>
+<ul>
+    <li><p>Inside a function or a block which is called <b>local</b> variables.</p></li>
+    <li><p>Outside of all functions which is called <b>global</b> variables.</p></li>
+    <li><p>In the definition of function parameters which are called <b>formal</b> parameters.</p></li>
+</ul>
+<p>Let us understand what are <b>local</b> and <b>global</b> variables, and <b>formal</b> parameters.</p>
+<h2 class="w3-border-top w3-border-bottom">Local Variables</h2>
+<p>Variables that are declared inside a function or block are called local variables. They can be used only by statements that are inside that function or block of code. Local variables are not known to functions outside their own. The following example shows how local variables are used. Here all the variables a, b, and c are local to main() function.</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="kwd">int</span> main<span class="pun">() {</span>
+
+  <span class="com">/* local variable declaration */</span>
+  <span class="kwd">int</span> a<span class="pun">,</span> b<span class="pun">;</span>
+  <span class="kwd">int</span> c<span class="pun">;</span>
+ 
+  <span class="com">/* actual initialization */</span>
+  a <span class="pun">=</span> 10<span class="pun">;</span>
+  b <span class="pun">=</span> 20<span class="pun">;</span>
+  c <span class="pun">=</span> a <span class="pun">+</span> b<span class="pun">;</span>
+ 
+  printf <span class="pun">(</span><span class="str">"value of a = %d, b = %d and c = %d\n"</span><span class="pun">,</span> a, b, c<span class="pun">);</span>
+ 
+  <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<h2 class="w3-border-top w3-border-bottom">Global Variables</h2>
+<p>Global variables are defined outside a function, usually on top of the program. Global variables hold their values throughout the lifetime of your program and they can be accessed inside any of the functions defined for the program.
+</p><p>
+A global variable can be accessed by any function. That is, a global variable is available for use throughout your entire program after its declaration. The following program show how global variables are used in a program.</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="com">/* global variable declaration */</span>
+<span class="kwd">int</span> g<span class="pun">;</span>
+ 
+<span class="kwd">int</span> main<span class="pun">() {</span>
+
+  <span class="com">/* local variable declaration */</span>
+  <span class="kwd">int</span> a, b<span class="pun">;</span>
+ 
+  <span class="com">/* actual initialization */</span>
+  a <span class="pun">=</span> 10<span class="pun">;</span>
+  b <span class="pun">=</span> 20<span class="pun">;</span>
+  g <span class="pun">=</span> a <span class="pun">+</span> b<span class="pun">;</span>
+ 
+  printf <span class="pun">(</span><span class="str">"value of a = %d, b = %d and g = %d\n"</span><span class="pun">,</span> a, b, g<span class="pun">);</span>
+ 
+  <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>A program can have same name for local and global variables but the value of local variable inside a function will take preference. Here is an example −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="com">/* global variable declaration */</span>
+<span class="kwd">int</span> g <span class="pun">=</span> 20<span class="pun">;</span>
+ 
+<span class="kwd">int</span> main<span class="pun">() {</span>
+
+  <span class="com">/* local variable declaration */</span>
+  <span class="kwd">int</span> g <span class="pun">=</span> 10<span class="pun">;</span>
+  
+  printf <span class="pun">(</span><span class="str">"value of g = %d\n"</span><span class="pun">,</span> g<span class="pun">);</span>
+ 
+  <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example">
+<pre>value of g = 10</pre>
+</div>
+<h2 class="w3-border-top w3-border-bottom">Formal Parameters</h2>
+<p>Formal parameters, are treated as local variables with-in a function and they take precedence over global variables. Following is an example −</p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code">
+    <pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="com">/* global variable declaration */</span>
+<span class="kwd">int</span> a <span class="pun">=</span> 20<span class="pun">;</span>
+ 
+<span class="kwd">int</span> main<span class="pun">() {</span>
+
+  <span class="com">/* local variable declaration in main function */</span>
+  <span class="kwd">int</span> a <span class="pun">=</span> 10<span class="pun">;</span>
+  <span class="kwd">int</span> b <span class="pun">=</span> 20<span class="pun">;</span>
+  <span class="kwd">int</span> c <span class="pun">=</span> 0<span class="pun">;</span>
+
+  printf <span class="pun">(</span><span class="str">"value of a in main() = %d\n"</span><span class="pun">,</span>  a<span class="pun">);</span>
+  c <span class="pun">=</span> sum<span class="pun">(</span> a<span class="pun">,</span> b<span class="pun">);</span>
+  printf <span class="pun">(</span><span class="str">"value of c in main() = %d\n"</span>,  c<span class="pun">);</span>
+
+  <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">/* function to add two integers */</span>
+<span class="kwd">int</span> sum<span class="pun">(</span><span class="kwd">int</span> a<span class="pun">,</span> <span class="kwd">int</span> b<span class="pun">) {</span>
+
+   printf <span class="pun">(</span><span class="str">"value of a in sum() = %d\n"</span><span class="pun">,</span>  a<span class="pun">);</span>
+   printf <span class="pun">(</span><span class="str">"value of b in sum() = %d\n"</span><span class="pun">,</span>  b<span class="pun">);</span>
+
+   <span class="kwd">return</span> a <span class="pun">+</span> b<span class="pun">;</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example">
+<pre>value of a in main() = 10
+value of a in sum() = 10
+value of b in sum() = 20
+value of c in main() = 30</pre></div>
+<h2 class="w3-border-top w3-border-bottom">Initializing Local and Global Variables</h2>
+<p>When a local variable is defined, it is not initialized by the system, you must initialize it yourself. Global variables are initialized automatically by the system when you define them as follows −</p>
+<table class="table table-bordered" style="text-align: center">
+<tbody>
+    <tr>
+    <th>Data Type</th><th>Initial Default Value</th>
+    </tr>
+    <tr>
+    <td>int</td><td>0</td>
+    </tr>
+    <tr>
+    <td>char</td><td>'\0'</td>
+    </tr>
+    <tr>
+    <td>float</td><td>0</td>
+    </tr>
+    <tr>
+    <td>double</td><td>0</td>
+    </tr>
+    <tr>
+    <td>pointer</td><td>NULL</td>
+    </tr>
+    </tbody>
+</table>
+<p>It is a good programming practice to initialize variables properly, otherwise your program may produce unexpected results, because uninitialized variables will take some garbage value already available at their memory location.</p>
+
+{% endblock %}

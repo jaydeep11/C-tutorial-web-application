@@ -1,0 +1,105 @@
+{% extends '../tutorials/tutbaselayout.html' %}
+{% load static %}
+
+{% block content %}
+<p>A storage class defines the scope (visibility) and life-time of variables and/or functions within a C Program. They precede the type that they modify. We have four different storage classes in a C program −</p>
+<ul>
+    <li>auto</li>
+    <li>register</li>
+    <li>static</li>
+    <li>extern</li>
+</ul>
+<h2 class="w3-border-top w3-border-bottom">The auto Storage Class</h2>
+<p>The <b>auto</b> storage class is the default storage class for all local variables.</p>
+<div class="w3-example">
+<pre>{
+   int mount;
+   auto int month;
+}</pre>
+</div>
+<p>The example above defines two variables with in the same storage class. 'auto' can only be used within functions, i.e., local variables.</p>
+<h2 class="w3-border-top w3-border-bottom">The register Storage Class</h2>
+<p>The <b>register</b> storage class is used to define local variables that should be stored in a register instead of RAM. This means that the variable has a maximum size equal to the register size (usually one word) and can't have the unary '&' operator applied to it (as it does not have a memory location).</p>
+<div class="w3-example">
+<pre>{
+   <span class="kwd">register int</span>  miles<span class="pun">;</span>
+}</pre>
+</div>
+<p>The register should only be used for variables that require quick access such as counters. It should also be noted that defining 'register' does not mean that the variable will be stored in a register. It means that it MIGHT be stored in a register depending on hardware and implementation restrictions.</p>
+<h2 class="w3-border-top w3-border-bottom">The static Storage Class</h2>
+<p>The <b>static</b> storage class instructs the compiler to keep a local variable in existence during the life-time of the program instead of creating and destroying it each time it comes into and goes out of scope. Therefore, making local variables static allows them to maintain their values between function calls.
+</p><p>
+The static modifier may also be applied to global variables. When this is done, it causes that variable's scope to be restricted to the file in which it is declared.
+</p><p>
+    In C programming, when <b>static</b> is used on a global variable, it causes only one copy of that member to be shared by all the objects of its class.</p>
+<div class="w3-example">
+    <h3>Example</h3>
+    <div class="w3-code">
+<pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="com">/* function declaration */</span>
+<span class="kwd">void</span> func<span class="pun">(</span><span class="kwd">void</span><span class="pun">);</span>
+ 
+<span class="kwd">static int</span> count <span class="pun">=</span> 5<span class="pun">;</span> <span class="com">/* global variable */</span>
+ 
+main<span class="pun">() {</span>
+
+   <span class="kwd">while</span><span class="pun">(</span>count<span class="pun">--) {</span>
+      func<span class="pun">();</span>
+   <span class="pun">}</span>
+	
+   <span class="kwd">return</span> 0<span class="pun">;</span>
+<span class="pun">}</span>
+
+<span class="com">/* function definition */</span>
+<span class="kwd">void</span> func<span class="pun">(</span> <span class="kwd">void</span> <span class="pun">) {</span>
+
+   <span class="kwd">static int</span> i <span class="pun">=</span> 5<span class="pun">;</span> <span class="com">/* local static variable */</span>
+   i<span class="pun">++;</span>
+
+   printf<span class="pun">(</span><span class="str">"i is %d and count is %d\n"</span><span class="pun">,</span> i<span class="pun">,</span> count<span class="pun">);</span>
+<span class="pun">}</span></pre>
+    </div>
+</div>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<div class="w3-example">
+<pre>i is 6 and count is 4
+i is 7 and count is 3
+i is 8 and count is 2
+i is 9 and count is 1
+i is 10 and count is 0</pre></div>
+<h2 class="w3-border-top w3-border-bottom">The extern Storage Class</h2>
+<p>The <b>extern</b> storage class is used to give a reference of a global variable that is visible to ALL the program files. When you use 'extern', the variable cannot be initialized however, it points the variable name at a storage location that has been previously defined.
+</p><p>
+When you have multiple files and you define a global variable or function, which will also be used in other files, then extern will be used in another file to provide the reference of defined variable or function. Just for understanding, extern is used to declare a global variable or function in another file.
+</p><p>
+The extern modifier is most commonly used when there are two or more files sharing the same global variables or functions as explained below.</p>
+<p><b>First File: main.c</b></p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code"><pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="kwd">int</span> count <span class="pun">;</span>
+<span class="kwd">extern void</span> write_extern<span class="pun">();</span>
+ 
+main<span class="pun">() {</span>
+   count <span class="pun">=</span> 5<span class="pun">;</span>
+   write_extern<span class="pun">();</span>
+<span class="pun">}</span></pre></div>
+</div>
+<p><b>Second File: support.c</b></p>
+<div class="w3-example">
+<h3>Example</h3>
+    <div class="w3-code"><pre><span class="com">#include</span> <span class="str">&#60;stdio.h&#62;</span>
+ 
+<span class="kwd">extern int</span> count<span class="pun">;</span>
+ 
+<span class="kwd">void</span> write_extern<span class="pun">(</span><span class="kwd">void</span><span class="pun">) {</span>
+   printf<span class="pun">(</span><span class="str">"count is %d\n"</span>, count<span class="pun">);</span>
+<span class="pun">}</span></pre></div>
+</div>
+<p>Here, <i>extern</i> is being used to declare <i>count</i> in the second file, where as it has its definition in the first file, main.c. Now, compile these two files as follows −</p>
+<div class="w3-example"><pre>$gcc main.c support.c</pre></div>
+<p>It will produce the executable program <b>a.out</b>. When this program is executed, it produces the following result −</p>
+<div class="w3-example"><pre>count is 5</pre></div>
+{% endblock %}
